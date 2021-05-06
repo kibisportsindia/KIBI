@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1067335768468",
+    "project_id": "kibi-sports-backend",
+    "storage_bucket": "kibi-sports-backend.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067335768468:android:35707d24139e326fd55781",
+        "android_client_info": {
+          "package_name": "com.kibi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067335768468-8nskbh029lliopoukh4s3pkqql1fi5t0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kibi",
+            "certificate_hash": "206fc8d79e221807e9e923f3ff874fa07c57d5ac"
+          }
+        },
+        {
+          "client_id": "1067335768468-q5si5c5riv9845dh4ocjlf4ios4if5ar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4PYnuyuLfG_pzGHm8u8nluwB5u9lLDBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067335768468-q5si5c5riv9845dh4ocjlf4ios4if5ar.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
