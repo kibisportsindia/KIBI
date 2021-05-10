@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
+    "@react-native-community/cookies": "^5.0.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-community/picker": "^1.8.1",
     "@react-native-firebase/app": "^11.4.1",
@@ -24,13 +25,19 @@
     "react-native-base": "^1.1.0",
     "react-native-dropdown-picker": "^4.0.9",
     "react-native-easy-grid": "^0.2.2",
+    "react-native-elements": "^3.4.1",
+    "react-native-fbsdk-next": "^4.2.0",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-instagram-login": "^2.0.4",
     "react-native-onboarding-swiper": "^1.1.4",
     "react-native-radio-button": "^2.0.1",
     "react-native-reanimated": "^2.1.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.1.1",
-    "react-native-simple-radio-button": "^2.7.4"
+    "react-native-simple-radio-button": "^2.7.4",
+    "react-native-twitter-signin": "^1.1.1",
+    "react-native-vector-icons": "^8.1.0",
+    "react-native-webview": "^11.4.4"
   },
   "devDependencies": {
     "@babel/core": "7.13.16",
