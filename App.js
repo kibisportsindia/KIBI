@@ -15,7 +15,7 @@ import SignUpScreen from './screens/SignUpScreen'
 import OtpVerifyScreen from './screens/OtpVerifyScreen';
 import ProfileDetailsScreen from './screens/ProfileDetailsScreen'
 import OtpLoginVerifyScreen from './screens/OtpLoginVerifyScreen'
-
+import AddSocialAccount from './screens/AddSocialAccounts'
 
 const Stack = createStackNavigator();
 
@@ -54,16 +54,17 @@ else if (isFirstLaunch==true){
 else{
   return(<NavigationContainer>
     <Stack.Navigator headerMode="none">
-      <Stack.Screen name="LoginScreen" component={LoginScreen} />
-        <Stack.Screen name="OtpLoginVerifyScreen" component={OtpLoginVerifyScreen} />
-      
-      <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
       <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+      <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="OtpLoginVerifyScreen" component={OtpLoginVerifyScreen} />
+      <Stack.Screen name="Signup" component={SignUpScreen} />      
+      <Stack.Screen name="RegisterScreen" component={RegisterScreen} />    
       <Stack.Screen name="OtpVerificationScreen" component={OtpVerifyScreen} />
       <Stack.Screen name="ProfileDetailsScreen" component={ProfileDetailsScreen} />
-
+      <Stack.Screen name="AddSocialAccount" component={AddSocialAccount} />
     </Stack.Navigator>
   </NavigationContainer>)
 }
+
 }
 export default App;

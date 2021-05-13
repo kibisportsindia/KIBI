@@ -57,6 +57,20 @@ export default class LoginScreen extends Component {
         <FormButton
         buttonTitle="Get OTP "
         onPress={()=>this.signInWithPhoneNumber()} />
+        <View style={{marginTop:30,flexDirection: 'row', alignItems: 'center'}}>
+             <View style={{flex: 1, height: 1, backgroundColor: 'gray'}} />
+            <View>
+                <Text style={{width: 30, textAlign: 'center',color:'gray' }}>OR</Text>
+            </View>
+            <View style={{flex: 1, height: 1, backgroundColor: 'gray'}} />
+            </View>
+            <TouchableOpacity style = {style.connectionButton} onPress={()=>onclickGoogleLogin()}>
+            <Image source = {require('../assets/images/google-logo.png')}
+             style={{
+               width:25,
+               height:25,               
+             }}/><Text style={style.connectionButtonText}>Sign in with Google</Text>
+            </TouchableOpacity> 
          <TouchableOpacity style={style.registerButton} onPress={()=>this.props.navigation.navigate('RegisterScreen')}>
             <Text style={style.registerButtonText}>Don't Have An Account? Register Here</Text>
         </TouchableOpacity>
@@ -96,8 +110,36 @@ const style=StyleSheet.create(
           fontSize:30,
           color:'#432344'
         },
+        connectionButtonText:{
+            fontSize:15,
+            color:'gray',
+            fontWeight:'700',
+            position:'absolute',
+            marginLeft:40,
+            padding:7          
+          },
+          connectionButton: {
+            backgroundColor:'white',
+            borderWidth:0.8,
+            borderColor:'gray',
+            borderRadius:5,
+            alignSelf:'center',
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowOpacity: 0.5,
+            shadowRadius: 1.41,
+            alignSelf:'center',
+            marginTop:30,
+            width:'60%',
+            padding:7,
+            fontWeight:'600',
+            letterSpacing:2
+          },
         registerButton:{
-            marginTop:100,
+            marginTop:85,
             fontSize:22,
             marginBottom:5
         },
