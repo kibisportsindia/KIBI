@@ -90,11 +90,11 @@ export default class SportSearch extends Component {
             submitButtonText="Submit"
           />
               </View>
-              <ScrollView style = {{marginTop:100}}>
+              <View style = {{marginTop:100}}>
               {this.multiSelect && this.multiSelect.getSelectedItemsExt(selectedItems)}
-   </ScrollView>
-   <View style ={{position:'absolute',marginTop: 50,alignSelf:'center'}}>
-   <FormButton buttonTitle="Get started"></FormButton>
+        </View>
+        <View style ={{position:'absolute',marginTop: 50,alignSelf:'center'}}>
+        <FormButton buttonTitle="Get started"></FormButton>
             </View>
    
             
