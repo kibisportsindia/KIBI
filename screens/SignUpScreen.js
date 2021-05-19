@@ -6,16 +6,7 @@ import FormButton from '../components/FormButton'
 import FormInput from '../components/FormInput'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import RegisterScreen from './RegisterScreen'
-import { GoogleSignin,GoogleSigninButton } from '@react-native-google-signin/google-signin';
-import { SocialIcon } from 'react-native-elements'
-import auth from '@react-native-firebase/auth';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
-GoogleSignin.configure({
-    webClientId: '1067335768468-q5si5c5riv9845dh4ocjlf4ios4if5ar.apps.googleusercontent.com',
-  });
-
+import RegisterScreen from './RegisterScreen';
 
 const SignUpScreen =(props)=>{
     onclickGoogleLogin=()=> {
@@ -46,9 +37,7 @@ const SignUpScreen =(props)=>{
                width:25,
                height:25,               
              }}/><Text style={style.connectionButtonText}>Sign up with Google</Text>
-            </TouchableOpacity>    
-
-
+            </TouchableOpacity> 
               <TouchableOpacity style={style.registerButton} onPress={()=> navigation.navigate('LoginScreen')}>
                   <Text style={style.registerButtonText}>Already a User? Sign In here</Text>
               </TouchableOpacity>

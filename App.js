@@ -16,6 +16,7 @@ import OtpVerifyScreen from './screens/OtpVerifyScreen';
 import ProfileDetailsScreen from './screens/ProfileDetailsScreen'
 import OtpLoginVerifyScreen from './screens/OtpLoginVerifyScreen'
 import AddSocialAccount from './screens/AddSocialAccounts'
+import Addinterests from './screens/Addinterests'
 
 const Stack = createStackNavigator();
 
@@ -61,10 +62,12 @@ else{
       <Stack.Screen name="RegisterScreen" component={RegisterScreen} />    
       <Stack.Screen name="OtpVerificationScreen" component={OtpVerifyScreen} />
       <Stack.Screen name="ProfileDetailsScreen" component={ProfileDetailsScreen} />
+      <Stack.Screen name="Addinterests" component={Addinterests}/>
       <Stack.Screen name="AddSocialAccount" component={AddSocialAccount} />
     </Stack.Navigator>
   </NavigationContainer>)
 }
+
 
 }
 export default App;

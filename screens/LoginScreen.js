@@ -6,9 +6,6 @@ import auth from '@react-native-firebase/auth'
 
 export default class LoginScreen extends Component {
 
-
-
-
     constructor(props){
         super(props);
         this.state={

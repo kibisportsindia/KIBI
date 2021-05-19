@@ -15,7 +15,7 @@ const style=StyleSheet.create(
     {
         buttonContainer:{
             marginTop:30,
-            width:'80%',
+            width:'95%',
             backgroundColor:'#432344',
             padding:10,
             alignItems:'center',
