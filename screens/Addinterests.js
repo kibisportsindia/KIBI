@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   Text,
   View,
- 
-  
+
+
 } from 'react-native';
 import Skip from '../components/skip';
 import SportSearch from '../components/SportSearch';
@@ -13,7 +13,7 @@ import SportSearch from '../components/SportSearch';
 export default class Addinterests extends Component {
 
   render() {
-    
+
     return (
       <View
         style={{
@@ -39,10 +39,10 @@ export default class Addinterests extends Component {
           }}>
           Get your news feed tailored for you.{'\n'}
           You can add upto 9 sports
-        </Text>        
-         <SportSearch></SportSearch> 
-        
-        
+        </Text>
+        <SportSearch></SportSearch>
+
+
       </View>
     );
   }
