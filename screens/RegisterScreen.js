@@ -34,9 +34,11 @@ const RegisterScreen = ({ navigation }) => {
                 // console.log(res)
                 if(res.message!="Invite Code is Valid")
                     console.log("inValid code");
-                else
+                else{
                     console.log("valid code");
-                navigation.navigate("SignUpScreen")
+                    navigation.navigate("SignUpScreen");
+                }
+                    
             })
         }).catch(err=>{
             //Handel error accordingly

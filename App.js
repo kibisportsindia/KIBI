@@ -17,8 +17,11 @@ import ProfileDetailsScreen from './screens/ProfileDetailsScreen'
 import OtpLoginVerifyScreen from './screens/OtpLoginVerifyScreen'
 import AddSocialAccount from './screens/AddSocialAccounts'
 import Addinterests from './screens/Addinterests'
-
+import CompanyProfile from './screens/CompanyProfile'
+import RegisterEventBasicDetails from './screens/RegisterEventBasicDetails'
+import RegisterEventAdditionalDetails from './screens/RegisterEventAdditionalDetails'
 import UserProvider  from './Context/UserContext'
+
 
 
 
@@ -64,18 +67,16 @@ const App = () => {
             <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="OtpLoginVerifyScreen" component={OtpLoginVerifyScreen} />
-            <Stack.Screen name="Signup" component={SignUpScreen} />
-            <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
             <Stack.Screen name="OtpVerificationScreen" component={OtpVerifyScreen} />
             <Stack.Screen name="ProfileDetailsScreen" component={ProfileDetailsScreen} />
             <Stack.Screen name="Addinterests" component={Addinterests} />
             <Stack.Screen name="AddSocialAccount" component={AddSocialAccount} />
             <Stack.Screen name="HomeScreen" component={HomeScreen} />
+            <Stack.Screen name="RegisterEventBasicDetails" component={RegisterEventBasicDetails} />
+            <Stack.Screen name="RegisterEventAdditionalDetails" component={RegisterEventAdditionalDetails} />
           </Stack.Navigator>
         </NavigationContainer>
     )
-  }
-
-
+}
 }
 export default App;

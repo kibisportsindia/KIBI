@@ -6,7 +6,6 @@ import FormButton from '../components/FormButton'
 import FormInput from '../components/FormInput'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import RegisterScreen from './RegisterScreen';
 import { UserContext } from "../Context/UserContext"
 import { useEffect, useContext } from 'react'
 
