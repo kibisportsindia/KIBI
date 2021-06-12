@@ -37,11 +37,13 @@
     "react-native-modal-datetime-picker": "^10.0.0",
     "react-native-multiple-select": "^0.5.6",
     "react-native-onboarding-swiper": "^1.1.4",
+    "react-native-pager-view": "^5.2.1",
     "react-native-radio-button": "^2.0.1",
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.3.0",
     "react-native-simple-radio-button": "^2.7.4",
+    "react-native-tab-view": "^3.0.1",
     "react-native-twitter-signin": "^1.1.1",
     "react-native-vector-icons": "^8.1.0",
     "react-native-webview": "^11.6.2"

@@ -1,124 +1,73 @@
-import React,{Component} from 'react';
-import {View,TextInput,StyleSheet,Text, ScrollView} from 'react-native';
-import FormButton from '../components/FormButton';
-import {Picker} from '@react-native-picker/picker';
-var gender = [
-    {label:"Male",value:0},
-    {label:"Female",value:1},
-    {label:"Others",value:2 }
-]
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TextInput } from 'react-native'
+import FormButton from '../components/FormButton'
 
-export default class ProfileDetails extends Component{
+export default function ProfileDetails() {
 
-    render(){
-    return(
-      <ScrollView>
-        <View>
+  const [name, onChangeName] = React.useState('')
+  const [age, onChangeAge] = React.useState('')
+  const [location, onChangeLocation] = React.useState('')
 
-            <Text
-            style={{
-                fontSize:40,
-                color:'purple',
-                textAlign:'center',
-                marginTop:60
-            }}>Add profile details</Text>
+  return (
+    <View>
+      <Text style={styles.heading}> Add profile details </Text>
 
-            <TextInput
-            style={{
-                marginTop:40,
-                borderColor:'gray',  
-                borderWidth:1,
-                height:50,
-                margin:30,
-                borderRadius:5,
-                paddingHorizontal:10  
-            }}
-            placeholder="Name"
-            ></TextInput>
-                         
-            <TextInput
-            style={{
-                marginTop:-10,
-                borderColor:'gray',  
-                borderWidth:1,
-                height:50,
-                margin:30,
-                borderRadius:5,
-                paddingHorizontal:10  
-            }}
-            keyboardType="email-address"
-            placeholder="Email"
-            
-            ></TextInput>
-            
-            <TextInput
-            style={{
-                marginTop:-10,
-                borderColor:'gray',  
-                borderWidth:1,
-                height:50,
-                margin:30,
-                borderRadius:5,
-                paddingHorizontal:10  
-            }}
-            keyboardType="number-pad"
-            placeholder="Age"
-            ></TextInput>
-            
-            <TextInput
-            style={{
-                marginTop:-10,
-                borderColor:'gray',  
-                borderWidth:1,
-                height:50,
-                margin:30,
-                borderRadius:5,
-                paddingHorizontal:10  
-            }}
-            placeholder="Location"
-            
-            ></TextInput>
-            <View  style={{borderWidth:1,width:"84%",marginLeft:30,marginRight:30,borderRadius:1,borderColor:"gray"}}>
-            <Picker style={{borderWidth:1,height:60,width:260,marginLeft:30}}>
-              <Picker.Item label="Select Role" value=""/>
-              <Picker.Item label="General" value="General"/>
-              <Picker.Item label="Athlete" value="Athelete"/>
-              <Picker.Item label="Coach" value="Coach"/>
-              <Picker.Item label="Sports Academy" value="Sports Academy"/>
-              <Picker.Item label="Brand/Company" value="Company"/>              
-              <Picker.Item label="Sports Staff" value="Sports staff"/>              
+      <TextInput
+        style={styles.inputName}
+        placeholder="Name"
+        value={name}
+        onChangeText={onChangeName}></TextInput>
 
-             </Picker>
-             </View>
-            
-          
-            <View style={{justifyContent:"center",alignItems:"center"}}>
-        <FormButton
-            buttonTitle="Next"/>
-            </View>
-        </View>
-        </ScrollView>
-    );
-}}
+      <TextInput
+        style={styles.input}
+        value={age}
+        keyboardType="number-pad"
+        onChangeText={onChangeAge}
+        placeholder="Age"></TextInput>
+
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeLocation}
+        value={location}
+        placeholder="Location"></TextInput>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Role"></TextInput>
+
+      <FormButton buttonTitle="Next"></FormButton>
+
+    </View>
+
+  )
+}
+
 const styles = StyleSheet.create({
-    viewStyle: {
-      flex: 1,
-      alignSelf: "center",
-      flexDirection: "row",
-      width: "92%",
-      justifyContent: "space-between",
-      alignItems: "center"
-    },
-    itemStyle: {
-      marginTop:-10,
-      fontSize: 10,
-      fontFamily: "black",
-      color: "black"
-    },
-   
-    textStyle: {
-      fontSize: 14,
-      color:'gray',
-      fontFamily: "Roboto-Regular"
-    }
-  });
+  heading: {
+    fontSize: 40,
+    color: '#432344',
+    alignSelf: 'center',
+    marginTop: '15%',
+  },
+  input: {
+    marginTop: '-2%',
+    borderColor: 'gray',
+    borderWidth: 1,
+    height: '10%',
+    margin: 30,
+    borderRadius: 5,
+    paddingHorizontal: '3%',
+    backgroundColor: '#fff'
+  },
+
+  inputName: {
+    backgroundColor: '#fff',
+    marginTop: '10%',
+    borderColor: 'gray',
+    borderWidth: 1,
+    height: '10%',
+    margin: 30,
+    borderRadius: 5,
+    paddingHorizontal: '3%',
+  }
+});
