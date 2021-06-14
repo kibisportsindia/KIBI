@@ -30,7 +30,7 @@ const SignUpScreen = (props) => {
   }
 
   function triggerOTP() {
-    console.log("in trigger OTP:",user.number)
+    console.log("in trigger OTP:", user.number)
     fetch('https://us-central1-kibi-sports-backend.cloudfunctions.net/app/user/send-otp', {
       method: 'POST',
       headers: {
@@ -44,7 +44,7 @@ const SignUpScreen = (props) => {
       console.log("success")
       console.log("OTP send successfully")
       props.navigation.navigate('OtpVerificationScreen')
-    }).catch(err=>{
+    }).catch(err => {
       console.log(err)
     })
     // props.navigation.navigate('OtpVerificationScreen')
