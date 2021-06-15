@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import {
     Text,
     StyleSheet,
     View,
     Image,
-    TextInput,
-    ScrollView,
     TouchableOpacity,
 } from 'react-native';
 import WhiteBtn from '../components/WhiteBtn';
-import Tab from '../components/Tab';
-import { useState } from 'react';
 
 const userprofile = () => {
 
@@ -39,19 +35,26 @@ const userprofile = () => {
 
             <Text style={styles.name}
                 value={name}
-                onPress={() => setname(name)}></Text>
+                onPress={() => setname(name)} >
+                {name}
+            </Text>
 
             <Text style={styles.details}
                 value={details}
-                onPress={() => setdetails(details)} ></Text>
+                onPress={() => setdetails(details)} >
+                {details}
+            </Text>
 
             <Text style={styles.status1}
                 value={status1}
-                onPress={() => setstatus1(status1)}></Text>
+                onPress={() => setstatus1(status1)}>
+                {status1}
+            </Text>
 
-            <Text style={styles.status2}>
+            <Text style={styles.status2}
                 value={status2}
-                onPress={() => setName(setstatus2)}
+                onPress={() => setName(setstatus2)}>
+                {status2}
             </Text>
 
             <WhiteBtn buttonTitle="Edit Profile" />
@@ -74,7 +77,6 @@ const userprofile = () => {
                     width: '100%',
                 }}></View>
 
-            <Tab style={{ marginTop: 10 }}></Tab>
         </View>
     );
 };

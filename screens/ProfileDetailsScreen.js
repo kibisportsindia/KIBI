@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native'
-import FormButton from '../components/FormButton'
+import NextPfDetailsBtn from '../components/NextPfDetailsBtn'
 
 export default function ProfileDetails() {
 
-  const [name, onChangeName] = React.useState('')
-  const [age, onChangeAge] = React.useState('')
-  const [location, onChangeLocation] = React.useState('')
+  const [name, setName] = useState('')
+  const [age, setAge] = useState('')
+  const [location, setLocation] = useState('')
+  const [role, setRole] = useState('')
+
+  console.log(name)
+  console.log(age)
+  console.log(location)
+  console.log(role)
 
   return (
     <View>
@@ -16,26 +22,28 @@ export default function ProfileDetails() {
         style={styles.inputName}
         placeholder="Name"
         value={name}
-        onChangeText={onChangeName}></TextInput>
+        onChangeText={(name) => setName(name)}></TextInput>
 
       <TextInput
         style={styles.input}
         value={age}
         keyboardType="number-pad"
-        onChangeText={onChangeAge}
+        onChangeText={(age) => setAge(age)}
         placeholder="Age"></TextInput>
 
       <TextInput
         style={styles.input}
-        onChangeText={onChangeLocation}
+        onChangeText={(location) => setLocation(location)}
         value={location}
         placeholder="Location"></TextInput>
 
       <TextInput
         style={styles.input}
+        value={role}
+        onChangeText={(role) => setRole(role)}
         placeholder="Role"></TextInput>
 
-      <FormButton buttonTitle="Next"></FormButton>
+      <NextPfDetailsBtn buttonTitle="Next"></NextPfDetailsBtn>
 
     </View>
 
