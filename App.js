@@ -14,7 +14,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import OtpVerifyScreen from './screens/OtpVerifyScreen';
 import ProfileDetailsScreen from './screens/ProfileDetailsScreen';
-import OtpLoginVerifyScreen from './screens/OtpLoginVerifyScreen';
+import OtpLoginVerifyScreen from './screens/OtpLogVerifyScreen';
 import AddSocialAccount from './screens/AddSocialAccounts';
 import Addinterests from './screens/Addinterests';
 import CompanyProfile from './screens/CompanyProfile';
@@ -60,8 +60,9 @@ const App = () => {
     return (
       <NavigationContainer>
         <Stack.Navigator headerMode="none">
-          <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
+          <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+          <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
           <Stack.Screen
             name="OtpLoginVerifyScreen"
             component={OtpLoginVerifyScreen}

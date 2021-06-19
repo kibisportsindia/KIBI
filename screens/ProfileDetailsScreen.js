@@ -94,6 +94,7 @@ export default class ProfileDetails extends Component{
           
             <View style={{justifyContent:"center",alignItems:"center"}}>
         <FormButton
+        onPress={()=>this.props.navigation.navigate('AddSocialAccount')}
             buttonTitle="Next"/>
             </View>
         </View>

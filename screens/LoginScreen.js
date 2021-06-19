@@ -65,7 +65,7 @@ const LoginScreen = (props) => {
             }} /><Text style={style.connectionButtonText}>Sign in with Google</Text>
         </TouchableOpacity>
         <TouchableOpacity style={style.registerButton} onPress={() =>
-          this.props.navigation.navigate('RegisterScreen')}>
+          props.navigation.navigate('RegisterScreen')}>
           <Text style={style.registerButtonText}>Don't Have An Account? Register Here</Text>
         </TouchableOpacity>
       </View>

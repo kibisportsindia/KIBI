@@ -20,7 +20,7 @@ RNTwitterSignIn.init('iTHZYbPouJnlcREkuGNAfOxxl', '62QHy4ll2ejFzH5GoNnABBTMrayug
   console.log('Twitter SDK initialized'),
 );
 
-const AddSocialAccount = () => {
+const AddSocialAccount = (props) => {
     onclickFaceBook = async() =>{
         const result = await LoginManager.logInWithPermissions(['public_profile','email']);
         if (result.isCancelled) {
@@ -136,7 +136,7 @@ return(
        <Text style = {styles.connectionButtonText}>Connect Twitter</Text>
        </TouchableOpacity>
        <InstagramLogin style = {styles.connectionButton}
-          ref={ref => (this.instagramLogin = ref)}
+         // ref={ref => (this.instagramLogin = ref)}
           appId='955668771927794'
           appSecret='e836b8219be2416ed9c742ad440e5dcd'
           redirectUrl='https://www.google.com/'
@@ -145,7 +145,7 @@ return(
           onLoginFailure={(data) => console.log(data)}
         />
      </View>
-     <TouchableOpacity style={styles.nextButton} onPress={()=>onclick('Next')}>
+     <TouchableOpacity style={styles.nextButton} onPress={()=>props.navigation.navigate('Addinterests')}>
        <Text style={styles.button} >Next</Text>
      </TouchableOpacity>
      </View>  
