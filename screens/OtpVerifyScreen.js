@@ -37,10 +37,12 @@ const OtpLoginVerifyScreen = (props) => {
     const [pin, setPin] = useState({
         pin1: "", pin2: "", pin3: "", pin4: "", pin5: "", pin6: "",
     })
-
-    confirmCode = async () => {
+    function statehandler(text) {
+        setUser({ ...user, "header": text })
+    }
+    confirmCode = () => {
         console.log("OTP:", pin)
-        const otp= ""+pin.pin1+pin.pin2+pin.pin3+pin.pin4+pin.pin5+pin.pin6
+        const otp = "" + pin.pin1 + pin.pin2 + pin.pin3 + pin.pin4 + pin.pin5 + pin.pin6
         //OtpVerification API Starts
         fetch('https://us-central1-kibi-sports-backend.cloudfunctions.net/app/user/verify', {
             method: 'POST',
@@ -49,25 +51,84 @@ const OtpLoginVerifyScreen = (props) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "phone":user.number,
-                "otp":otp
+                "phone": user.number,
+                "otp": otp
             })
         }).then(data => {
             console.log("success")
-            data.json().then(res=>{
+            data.json().then(res => {
                 console.log(res)
-                if(res.message==="Verification successfull"){
-                    props.navigation.navigate('ProfileDetailsScreen') 
+                if (res.message === "Verification successfull") {
+                    fetch('https://us-central1-kibi-sports-backend.cloudfunctions.net/app/user/login', {
+                        method: 'POST',
+                        headers: {
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            "phone": "9005901803",
+                        })
+                    }).then(data => {
+                        console.log("auth-header present:", data.headers.get('auth-user'));
+                        // console.log("old state:", user)
+                        header = data.headers.get('auth-user')
+                        if (header) {
+                            console.log("navigating to home Screen header present")
+                            statehandler(header)
+                            props.navigation.navigate('HomeScreen')
+                        }
+                        else {
+                            console.log("Auth header not present", user)
+                            props.navigation.navigate('ProfileDetailsScreen')
+                        }
+                    }).catch(err => {
+                        console.log("Auth header not present", user)
+                        props.navigation.navigate('ProfileDetailsScreen')
+                    })
                 }
-                else{
+                else {
                     // otp not verified 
-                } 
-            }).catch(err=>{
-                console.log("error occured:",err)
+                }
+            }).catch(err => {
+                console.log("error occured:", err)
 
             })
-        });   
+        });
     }
+
+    confirmCodeTest = () => {
+        const otp = "" + pin.pin1 + pin.pin2 + pin.pin3 + pin.pin4 + pin.pin5 + pin.pin6
+
+        if (otp === "123456") {
+            fetch('https://us-central1-kibi-sports-backend.cloudfunctions.net/app/user/login', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "phone": "8171154464",
+                })
+            }).then(data => {
+                console.log(data.headers.get('auth-user'));
+                // console.log("old state:", user)
+                header = data.headers.get('auth-user')
+                if (header) {
+                    statehandler(header)
+                    console.log("navigationg to home Screen")
+                    props.navigation.navigate('HomeScreen')
+                }
+                else {
+                    console.log("Auth header not present", user)
+                    props.navigation.navigate('ProfileDetailsScreen')
+                }
+            })
+        }
+        else {
+            // otp not verified 
+        }
+    }
+
 
     return (
         <>
@@ -77,7 +138,7 @@ const OtpLoginVerifyScreen = (props) => {
             <View style={{ flex: 1, justifyContent: "space-evenly", flexDirection: "row", marginTop: 50 }}>
                 <TextInput ref={textInput1}
                     onChangeText={(pin1) => {
-                        console.log("pin1:", pin1)
+                        // console.log("pin1:", pin1)
                         setPin({ ...pin, pin1: pin1 })
                         if (pin1 != "") {
                             // refs.pin2ref.focus()
@@ -148,7 +209,6 @@ const OtpLoginVerifyScreen = (props) => {
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
                 <FormButton
                     buttonTitle={"Verify"}
-                    //    onPress={()=>props.navigation.navigate('ProfileDetailsScreen')} 
                     onPress={() => confirmCode()}
                 />
             </View>

@@ -1,24 +1,22 @@
-import { NavigationHelpersContext } from '@react-navigation/core'
-import React from 'react'
+import React, {useContext} from 'react'
 import { useState } from 'react'
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import { color } from 'react-native-reanimated'
 import FormButton from '../components/FormButton'
 import FormInput from '../components/FormInput'
-import SignUpScreen from './SignUpScreen'
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { UserContext } from "../Context/UserContext"
 
 const RegisterScreen = ({ navigation }) => {
 
-    const [refCode, setRefCode] = useState("");
+    const [user, setUser] = useContext(UserContext)
 
     function statehandler(text){
-        setRefCode(text)
-        console.log("state changed:",text)
+        setUser({...user, "invite_code":text})
+        // console.log("state changed:",user)
     }
 
     function verifyReferral(code) {
+        console.log("code:",code)
         fetch('https://us-central1-kibi-sports-backend.cloudfunctions.net/app/user/validate-invite', {
             method: 'POST',
             headers: {
@@ -31,7 +29,7 @@ const RegisterScreen = ({ navigation }) => {
         }).then(data => {
             console.log("success")
             data.json().then(res=>{
-                // console.log(res)
+                console.log("response:",res.message)
                 if(res.message!="Invite Code is Valid")
                     console.log("inValid code");
                 else{
@@ -57,7 +55,7 @@ const RegisterScreen = ({ navigation }) => {
             <FormButton
                 buttonTitle="Submit"
                 // onPress={()=>navigation.navigate("SignUpScreen")} 
-                onPress={() => verifyReferral(refCode)
+                onPress={() => verifyReferral(user.invite_code)
 
             }
             />

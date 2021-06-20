@@ -13,11 +13,6 @@ import { useEffect, useContext } from 'react'
 const SignUpScreen = (props) => {
 
   const [user, setUser] = useContext(UserContext)
-  // const user = useContext(UserContext)
-
-  // useEffect(() => {
-  //   console.log("value from state:", user)
-  // }, []);
 
   onclickGoogleLogin = () => {
     props.navigation.navigate("LoginScreen")
