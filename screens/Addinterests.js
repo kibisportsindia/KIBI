@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { TouchableOpacity } from 'react-native';
 import {
   Text,
   View,
-
-
+  Button 
 } from 'react-native';
 import Skip from '../components/skip';
 import SportSearch from '../components/SportSearch';
+import FormButton from '../components/FormButton';
 
 
 
@@ -15,6 +16,10 @@ export default class Addinterests extends Component {
   render() {
 
     return (
+      <>
+      <FormButton
+      buttonTitle="Next"
+      onPress={()=>this.props.navigation.navigate("HomeScreen")}/>
       <View
         style={{
           backgroundColor: '#fff',
@@ -41,9 +46,8 @@ export default class Addinterests extends Component {
           You can add upto 9 sports
         </Text>
         <SportSearch></SportSearch>
-
-
       </View>
+</>
     );
   }
 }

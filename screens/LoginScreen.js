@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import FormButton from '../components/FormButton'
 import FormInput from '../components/FormInput'
-import auth from '@react-native-firebase/auth'
 import { UserContext } from "../Context/UserContext"
 
 const LoginScreen = (props) => {
@@ -19,22 +18,28 @@ const LoginScreen = (props) => {
     console.log("latest state:", user)
   }
 
+  const url = 'https://us-central1-kibi-sports-backend.cloudfunctions.net/app/user/send-otp'
+  const number = user.number
+
   function triggerOTP() {
-    console.log("in trigger OTP:",user.number)
-    fetch('https://us-central1-kibi-sports-backend.cloudfunctions.net/app/user/send-otp', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        phone: user.number
-      })
-    }).then(data => {
-      console.log("success")
-      console.log("OTP send successfully")
-      props.navigation.navigate('OtpVerificationScreen')
-    })
+    console.log("in trigger OTP:", number)
+    props.navigation.navigate('OtpVerificationScreen')
+    // fetch(url, {
+    //   method: 'POST',
+    //   headers: {
+    //     Accept: 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     phone: number
+    //   })
+    // }).then(data => {
+    //   console.log("success")
+    //   console.log("OTP send successfully")
+    //   props.navigation.navigate('OtpVerificationScreen')
+    // }).catch(err => {
+    //   console.log("error occured:" + err)
+    // })
   }
 
   return (
@@ -45,11 +50,11 @@ const LoginScreen = (props) => {
           style={style.logo} />
         <Text style={style.text}>Sign In</Text>
         <FormInput
-          placeholderText="Enter Mobile Number" setValue={statehandler}/>
+          placeholderText="Enter Mobile Number" setValue={statehandler} />
         <FormButton
-        buttonTitle="Get OTP" onPress={() => {
-          triggerOTP()
-        }} />
+          buttonTitle="Get OTP" onPress={() => {
+            triggerOTP()
+          }} />
         <View style={{ marginTop: 30, flexDirection: 'row', alignItems: 'center' }}>
           <View style={{ flex: 1, height: 1, backgroundColor: 'gray' }} />
           <View>
@@ -65,7 +70,8 @@ const LoginScreen = (props) => {
             }} /><Text style={style.connectionButtonText}>Sign in with Google</Text>
         </TouchableOpacity>
         <TouchableOpacity style={style.registerButton} onPress={() =>
-          this.props.navigation.navigate('RegisterScreen')}>
+          props.navigation.navigate('RegisterScreen')
+        }>
           <Text style={style.registerButtonText}>Don't Have An Account? Register Here</Text>
         </TouchableOpacity>
       </View>

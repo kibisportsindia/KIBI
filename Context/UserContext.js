@@ -11,8 +11,4 @@ export const UserProvider = props => {
         {props.children}
     </UserContext.Provider>
     )
-    // return (<UserContext.Provider value={'Hello'}>
-    //     {props.children}
-    // </UserContext.Provider>
-    // )
 }

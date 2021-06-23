@@ -1,4 +1,6 @@
-import {Text, View} from 'react-native';
+/*
+  please work on code indentation it helps others in code understanding
+*/
 
 import React from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -7,22 +9,19 @@ import {createStackNavigator} from '@react-navigation/stack';
 import OnboardingScreen from './screens/OnboardingScreen';
 import HomeScreen from './screens/HomeScreen';
 import {useEffect} from 'react';
-import {Value} from 'react-native-reanimated';
 import LoginScreen from './screens/LoginScreen';
-import LoadingScreen from './screens/LoadingScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import OtpVerifyScreen from './screens/OtpVerifyScreen';
 import ProfileDetailsScreen from './screens/ProfileDetailsScreen';
-import OtpLoginVerifyScreen from './screens/OtpLoginVerifyScreen';
+import OtpLoginVerifyScreen from './screens/OtpLogVerifyScreen';
 import AddSocialAccount from './screens/AddSocialAccounts';
 import Addinterests from './screens/Addinterests';
-import CompanyProfile from './screens/CompanyProfile';
 import RegisterEventBasicDetails from './screens/RegisterEventBasicDetails';
 import RegisterEventAdditionalDetails from './screens/RegisterEventAdditionalDetails';
 import events from './screens/events';
 import EventDetails from './screens/EventDetails';
-import UserProvider from './Context/UserContext';
+import Tutorials from './screens/Tutorials';
 
 const Stack = createStackNavigator();
 
@@ -53,6 +52,21 @@ const App = () => {
             name="OtpVerificationScreen"
             component={OtpVerifyScreen}
           />
+          <Stack.Screen
+            name="ProfileDetailsScreen"
+            component={ProfileDetailsScreen}
+          />
+          <Stack.Screen name="Addinterests" component={Addinterests} />
+          <Stack.Screen name="AddSocialAccount" component={AddSocialAccount} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen
+            name="RegisterEventBasicDetails"
+            component={RegisterEventBasicDetails}
+          />
+          <Stack.Screen
+            name="RegisterEventAdditionalDetails"
+            component={RegisterEventAdditionalDetails}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );
@@ -60,8 +74,9 @@ const App = () => {
     return (
       <NavigationContainer>
         <Stack.Navigator headerMode="none">
-          <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
+          <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+          <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
           <Stack.Screen
             name="OtpLoginVerifyScreen"
             component={OtpLoginVerifyScreen}
